@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="tfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="45%" stop-color="#6366f1" />
+      <stop offset="75%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#f8fafc" stop-opacity="0.88" />
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.98" />
+      <stop offset="100%" stop-color="#f1f5f9" stop-opacity="0.92" />
+    </linearGradient>
+    <linearGradient id="checkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <filter id="cardShadow" x="-15%" y="-10%" width="130%" height="135%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.32" />
+    </filter>
+  </defs>
+
+  <!-- Squircle Base -->
+  <rect width="512" height="512" rx="120" fill="url(#tfGrad)" />
+  
+  <!-- Subtle inner glass highlight border -->
+  <rect x="6" y="6" width="500" height="500" rx="114" stroke="white" stroke-opacity="0.22" stroke-width="6" fill="none" />
+
+  <!-- Left Column - Backlog / To Do -->
+  <g filter="url(#cardShadow)">
+    <rect x="84" y="104" width="156" height="116" rx="22" fill="url(#cardGrad1)" />
+    <rect x="108" y="128" width="52" height="14" rx="7" fill="#6366f1" />
+    <rect x="108" y="154" width="108" height="12" rx="6" fill="#1e293b" />
+    <rect x="108" y="174" width="76" height="8" rx="4" fill="#94a3b8" />
+    <circle cx="216" cy="135" r="7" fill="#38bdf8" />
+
+    <rect x="84" y="244" width="156" height="164" rx="22" fill="url(#cardGrad1)" />
+    <rect x="108" y="268" width="62" height="14" rx="7" fill="#f59e0b" />
+    <rect x="108" y="294" width="108" height="12" rx="6" fill="#1e293b" />
+    <rect x="108" y="316" width="94" height="8" rx="4" fill="#94a3b8" />
+    <rect x="108" y="332" width="64" height="8" rx="4" fill="#cbd5e1" />
+    <rect x="108" y="372" width="108" height="10" rx="5" fill="#e2e8f0" />
+    <rect x="108" y="372" width="72" height="10" rx="5" fill="#f59e0b" />
+  </g>
+
+  <!-- Right Column - Completed / In-Flight -->
+  <g filter="url(#cardShadow)">
+    <rect x="272" y="104" width="156" height="304" rx="22" fill="url(#cardGrad2)" />
+    
+    <rect x="296" y="128" width="54" height="14" rx="7" fill="#10b981" />
+    <rect x="296" y="154" width="108" height="12" rx="6" fill="#1e293b" />
+    <rect x="296" y="174" width="80" height="8" rx="4" fill="#94a3b8" />
+
+    <circle cx="350" cy="254" r="44" fill="url(#checkGrad)" />
+    <circle cx="350" cy="254" r="44" stroke="white" stroke-width="4" stroke-opacity="0.3" fill="none" />
+    <path d="M332 254 L344 267 L368 239" stroke="white" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+
+    <rect x="296" y="338" width="108" height="10" rx="5" fill="#e2e8f0" />
+    <rect x="296" y="338" width="108" height="10" rx="5" fill="#10b981" />
+    <rect x="296" y="362" width="70" height="8" rx="4" fill="#94a3b8" />
+  </g>
+</svg>

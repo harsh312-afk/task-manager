@@ -1,31 +1,68 @@
-# Task Manager
+# TaskFlow — Modern Kanban Task Manager
 
-A drag-and-drop Kanban board task manager built with React, Vite, Tailwind CSS, and localStorage persistence.
+[![Live Demo](https://img.shields.io/badge/Vercel-Live%20Demo-black?style=for-the-badge&logo=vercel)](https://lucid-planck.vercel.app)
+[![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://react.dev)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-38bdf8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
+[![Vite](https://img.shields.io/badge/Vite-8-646cff?style=for-the-badge&logo=vite)](https://vitejs.dev)
 
-## Features
+A modern, fast, and feature-rich drag-and-drop Kanban task management board built with **React 19**, **Vite**, **Tailwind CSS v4**, **@hello-pangea/dnd**, and **localStorage** persistence.
 
-- **Kanban Board**: Three columns (To Do, In Progress, Done)
-- **Drag and Drop**: Move tasks between columns using [@hello-pangea/dnd](https://atlaskit.atlassian.com/packages/hello-pangea/dnd)
-- **Task Management**: Create, edit, and delete tasks
-- **Persistence**: All board state saved to `localStorage` (survives page refreshes)
-- **Responsive Design**: Beautifully styled with Tailwind CSS
-- **Visual Feedback**: Drag hover effects, column counters, and edit modes
+🚀 **Live Production Deployment**: [https://lucid-planck.vercel.app](https://lucid-planck.vercel.app)  
+🔗 **Direct Project Link**: [https://task-manager-flow-harsh312-afk.vercel.app](https://task-manager-flow-harsh312-afk.vercel.app)
 
-## Tech Stack
+---
 
-- **Framework**: React 18 + Vite
-- **Styling**: Tailwind CSS
-- **Drag and Drop**: @hello-pangea/dnd
-- **State Management**: React hooks (useState, useEffect)
-- **Persistence**: localStorage
-- **Icons**: React Icons
+## ✨ Key Features & Improvements
 
-## Getting Started
+- **⚡ Full Drag and Drop Kanban Board**:
+  - Reorder tasks smoothly within columns and move tasks between **To Do**, **In Progress**, and **Done** columns.
+  - Built with `@hello-pangea/dnd` with zero re-render glitches and immutable state updates.
+- **🎨 Custom Vector Icon & Brand Identity**:
+  - High-resolution custom SVG app icon and favicon (`public/favicon.svg` and `public/icon.svg`).
+  - Branded header logo and metadata.
+- **🎯 Task Prioritization**:
+  - 4 color-coded priority levels: **Urgent** (Rose), **High** (Amber), **Medium** (Sky), and **Low** (Slate).
+- **📅 Due Dates & Overdue Alerts**:
+  - Set task deadlines with intelligent relative indicators: **Overdue**, **Due Today**, **Due Tomorrow**, or formatted calendar dates.
+- **🏷️ Categories & Tags**:
+  - Organize tasks across `Frontend`, `Backend`, `Design`, `DevOps`, `Testing`, `Research`, and `General`.
+- **🔍 Real-Time Search & Multi-Filters**:
+  - Instant text search across task titles and descriptions.
+  - Filter simultaneously by Priority and Category with a one-click "Clear Filters" button.
+- **📊 Real-Time Board Statistics**:
+  - Live progress bar showing completion rate percentage.
+  - Interactive metric counters for Total Tasks, To Do, In Progress, and Completed.
+- **🌓 Dark & Light Mode**:
+  - Fully integrated dark theme matching system preference with instant toggle.
+  - Prevents initial flash of unstyled content (FOUC) and conforms to modern web `color-scheme` standards.
+- **📱 Quick Move Navigation**:
+  - One-click "Prev" / "Next" buttons on task cards for effortless organization on mobile touchscreens and keyboard navigation.
+- **💾 LocalStorage & Data Portability**:
+  - Automatic persistence to `localStorage`.
+  - Export board state to `.json` and import from JSON anytime.
+  - "Load Demo Tasks" button to immediately populate sample workflow data.
+- **♿ Accessible Modal Dialogs**:
+  - Native `<dialog>` implementation with `closedby="any"` light-dismiss and ESC keyboard dismissal.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: React 19 + Vite 8
+- **Styling**: Tailwind CSS v4 with custom dark mode variants
+- **Drag and Drop**: `@hello-pangea/dnd`
+- **Icons**: `react-icons` (Lucide)
+- **State & Persistence**: React Hooks (`useState`, `useMemo`, `useEffect`) + `localStorage`
+- **Deployment**: Vercel
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
-- npm or yarn
+- Node.js (v18 or higher recommended)
+- npm, yarn, or pnpm
 
 ### Installation
 
@@ -40,89 +77,80 @@ A drag-and-drop Kanban board task manager built with React, Vite, Tailwind CSS, 
    npm install
    ```
 
-### Development
+### Development Server
 
-Start the development server:
+Start the local Vite dev server:
 ```bash
 npm run dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
+### Linting & Code Quality
+
+Run oxlint across the project:
+```bash
+npm run lint
+```
+
 ### Production Build
 
-Create a production build:
+Create an optimized production bundle:
 ```bash
 npm run build
 ```
 
-Preview the production build:
+Preview the production build locally:
 ```bash
 npm run preview
 ```
 
-## Project Structure
+---
+
+## 📂 Project Structure
 
 ```
-src/
-├── App.jsx             # Main app layout
-├── components/
-│   ├── Board.jsx       # DragDropContext + 3 Column components
-│   ├── Column.jsx      # Individual column with AddTaskForm
-│   ├── Task.jsx        # Task display with edit/delete controls
-│   └── AddTaskForm.jsx # Form to create new tasks
-├── utils/
-│   └── storage.js      # localStorage helpers (loadBoard/saveBoard)
-├── index.css           # Tailwind CSS directives
-└── main.jsx            # Entry point
+task-manager/
+├── public/
+│   ├── favicon.svg          # Custom TaskFlow SVG favicon
+│   ├── icon.svg             # Vector app icon
+│   └── icons.svg
+├── src/
+│   ├── components/
+│   │   ├── Board.jsx        # Main Kanban board & state orchestrator
+│   │   ├── Column.jsx       # Droppable column with task counters & quick add
+│   │   ├── Task.jsx         # Draggable task card with priorities & badges
+│   │   ├── TaskModal.jsx    # Accessible modal for creating & editing tasks
+│   │   ├── ConfirmModal.jsx # Accessible confirmation dialog
+│   │   ├── Header.jsx       # Branding, search, filters & tools menu
+│   │   ├── StatsBar.jsx     # Completion progress & metric counters
+│   │   └── TaskFlowLogo.jsx # Custom brand logo vector component
+│   ├── utils/
+│   │   └── storage.js       # LocalStorage helpers, demo data & migrations
+│   ├── App.jsx              # Root component
+│   ├── index.css            # Tailwind CSS v4 styling & dark mode rules
+│   └── main.jsx             # React DOM entry point
+├── index.html               # Semantic HTML5 entry with metadata & FOUC prevention
+├── package.json
+└── vite.config.js
 ```
 
-## How It Works
+---
 
-### State Management
+## 🌐 Deployment to Vercel
 
-The board state is a nested object with three columns:
-```javascript
-{
-  todo:    [{id: '1', title: 'Task 1', description: '...'}],
-  inProgress: [{id: '2', title: 'Task 2', description: '...'}],
-  done:    [{id: '3', title: 'Task 3', description: '...'}]
-}
+This project is deployed to Vercel:
+
+- **Live URL**: [https://lucid-planck.vercel.app](https://lucid-planck.vercel.app)
+- **Direct Project URL**: [https://task-manager-flow-harsh312-afk.vercel.app](https://task-manager-flow-harsh312-afk.vercel.app)
+
+To deploy your own instance using the Vercel CLI:
+```bash
+npx vercel --prod
 ```
 
-### Drag and Drop
+---
 
-Using `@hello-pangea/dnd`:
-- `DragDropContext` wraps the board
-- Each column is a `Droppable`
-- Each task is a `Draggable`
-- On drag end, we update the board state and persist to localStorage
+## 📄 License
 
-### Persistence
-
-Board state is saved to `localStorage` under the key `taskBoard` whenever it changes.
-
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint (if configured)
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-- [hello-pangea/dnd](https://atlaskit.atlassian.com/packages/hello-pangea/dnd) for the drag and drop functionality
-- Tailwind CSS for the utility-first CSS framework
-- Vite for the fast development server and build tool
+MIT &copy; [harsh312-afk](https://github.com/harsh312-afk)
